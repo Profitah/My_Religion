@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    include: core
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${JDBC_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
