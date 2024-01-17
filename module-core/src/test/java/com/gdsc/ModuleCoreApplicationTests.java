@@ -1,10 +1,10 @@
-package com.gdsc.api;
+package com.gdsc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DoFarmingApiApplicationTests {
+class ModuleCoreApplicationTests {
 
     @Test
     void contextLoads() {

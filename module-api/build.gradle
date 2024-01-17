@@ -1,9 +1,23 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'java'
+    id 'com.google.cloud.tools.jib' version '3.3.1'
 }
 
-group = 'com.gdsc'
-version = '0.0.1-SNAPSHOT'
+jib {
+    from {
+        image = "openjdk:17-jdk-alpine"
+    }
+    to {
+        image = "yonghyeon/dofarming-api"
+        tags = ['latest', new SimpleDateFormat('yyyyMMddHHmmss').format(System.currentTimeMillis())]
+    }
+    container {
+        environment = [TZ: "Asia/Seoul"]
+        jvmFlags = ['-Dspring.profiles.active=dev', '-XX:+UseContainerSupport', '-Dfile.encoding=UTF-8', '-Duser.timezone="Asia/Seoul"']
+    }
+}
 
 repositories {
     mavenCentral()
