@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat
 
 plugins {
     id 'java'
-    id 'com.google.cloud.tools.jib' version '3.3.1'
+    id 'com.google.cloud.tools.jib' version '3.4.0'
 }
 
 jib {
