@@ -10,7 +10,7 @@ jib {
         image = "openjdk:17-jdk-alpine"
     }
     to {
-        image = "yonghyeon/dofarming-api"
+        image = "chooh1010/dofarming-api"
         tags = ['latest', new SimpleDateFormat('yyyyMMddHHmmss').format(System.currentTimeMillis())]
     }
     container {
