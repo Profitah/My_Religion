@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 spring:
   profiles:
     include: core
@@ -8,3 +8,15 @@ spring:
     url: ${JDBC_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        default_batch_fetch_size: ${chunkSize:100}
+        jdbc.batch_size: 20
+        order_inserts: true
+        order_updates: true
+    show-sql: true
