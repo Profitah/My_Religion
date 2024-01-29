@@ -1,4 +1,4 @@
-package com.gdsc.auth.entity;
+package com.gdsc.domain.user.entity;
 
 import com.google.common.base.Objects;
 import com.google.firebase.auth.FirebaseToken;

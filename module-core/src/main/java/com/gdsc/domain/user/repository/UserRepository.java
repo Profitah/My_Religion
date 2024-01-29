@@ -1,6 +1,6 @@
-package com.gdsc.auth.repository;
+package com.gdsc.domain.user.repository;
 
-import com.gdsc.auth.entity.User;
+import com.gdsc.domain.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,7 +1,7 @@
 package com.gdsc.domain.user.model;
 
-import com.gdsc.auth.entity.Gender;
-import com.gdsc.auth.entity.User;
+import com.gdsc.domain.user.entity.Gender;
+import com.gdsc.domain.user.entity.User;
 import lombok.Builder;
 
 @Builder
