@@ -1,7 +1,7 @@
 package com.gdsc.domain.user.service;
 
-import com.gdsc.auth.entity.User;
-import com.gdsc.auth.service.UserDetailService;
+import com.gdsc.domain.user.entity.User;
+import com.gdsc.security.service.UserDetailService;
 import com.gdsc.domain.user.model.UserInfoRequest;
 
 import com.gdsc.domain.user.model.UserKeywordsRequest;

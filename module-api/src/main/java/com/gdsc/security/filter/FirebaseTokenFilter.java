@@ -1,9 +1,9 @@
-package com.gdsc.common.security.filter;
+package com.gdsc.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gdsc.auth.entity.Role;
-import com.gdsc.auth.entity.User;
-import com.gdsc.auth.service.UserDetailService;
+import com.gdsc.domain.user.entity.Role;
+import com.gdsc.domain.user.entity.User;
+import com.gdsc.security.service.UserDetailService;
 import com.gdsc.common.exception.ApplicationErrorException;
 import com.gdsc.common.exception.ApplicationErrorType;
 import com.gdsc.common.model.ErrorResponseDto;
@@ -16,8 +16,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,7 +26,7 @@ import java.io.IOException;
 @Slf4j
 @RequiredArgsConstructor
 public class FirebaseTokenFilter extends OncePerRequestFilter {
-    private final UserDetailService userService;
+    private final UserDetailService userDetailService;
     private final FirebaseAuth firebaseAuth;
 
     @Override
@@ -64,9 +62,9 @@ public class FirebaseTokenFilter extends OncePerRequestFilter {
     private User getUser(FirebaseToken firebaseToken) {
         User user;
         try {
-            user = userService.updateByUsername(firebaseToken);
+            user = userDetailService.updateByUsername(firebaseToken);
         } catch (ApplicationErrorException e) {
-            user = userService.create(firebaseToken, Role.ROLE_USER);
+            user = userDetailService.create(firebaseToken, Role.ROLE_USER);
             log.debug("Create User: {}", user);
         }
         return user;

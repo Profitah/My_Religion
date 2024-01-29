@@ -1,0 +1,18 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:leveloffset: 1
+:secttlinks:
+
+[[사용자-API]]
+= 사용자 API
+
+[[사용자_정보-변경]]
+== 사용자 정보 변경
+operation::user-info-update[snippets='http-request,request-fields,http-response,response-fields']
+
+[[사용자_키워드-변경]]
+== 사용자 키워드 변경
+operation::user-keywords-update[snippets='http-request,request-fields,http-response,response-fields']

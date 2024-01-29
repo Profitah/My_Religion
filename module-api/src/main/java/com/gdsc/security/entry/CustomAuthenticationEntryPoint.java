@@ -1,4 +1,4 @@
-package com.gdsc.common.security.entry;
+package com.gdsc.security.entry;
 
 import com.gdsc.common.exception.ApplicationErrorType;
 import jakarta.servlet.http.HttpServletRequest;

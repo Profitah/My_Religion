@@ -1,9 +1,9 @@
-package com.gdsc.auth.service;
+package com.gdsc.security.service;
 
-import com.gdsc.auth.entity.Gender;
-import com.gdsc.auth.entity.Role;
-import com.gdsc.auth.entity.User;
-import com.gdsc.auth.repository.UserRepository;
+import com.gdsc.domain.user.entity.Gender;
+import com.gdsc.domain.user.entity.Role;
+import com.gdsc.domain.user.entity.User;
+import com.gdsc.domain.user.repository.UserRepository;
 import com.gdsc.common.exception.ApplicationErrorException;
 import com.gdsc.common.exception.ApplicationErrorType;
 import com.google.firebase.auth.FirebaseToken;

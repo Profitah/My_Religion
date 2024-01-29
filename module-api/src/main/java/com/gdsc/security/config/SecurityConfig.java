@@ -1,13 +1,12 @@
-package com.gdsc.common.config;
+package com.gdsc.security.config;
 
-import com.gdsc.auth.service.UserDetailService;
-import com.gdsc.common.security.entry.CustomAccessDeniedHandler;
-import com.gdsc.common.security.entry.CustomAuthenticationEntryPoint;
-import com.gdsc.common.security.filter.FirebaseTokenFilter;
+import com.gdsc.security.service.UserDetailService;
+import com.gdsc.common.config.CorsConfig;
+import com.gdsc.security.entry.CustomAccessDeniedHandler;
+import com.gdsc.security.entry.CustomAuthenticationEntryPoint;
+import com.gdsc.security.filter.FirebaseTokenFilter;
 import com.google.firebase.auth.FirebaseAuth;
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,13 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity

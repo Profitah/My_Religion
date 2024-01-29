@@ -1,0 +1,39 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:leveloffset: 1
+:secttlinks:
+
+
+[[API-개요]]
+
+[[오류-응답]]
+== 오류 응답
+operation::error-response[snippets='response-body,response-fields']
+
+|===
+| 상태 코드 | 설명
+
+| 200 OK
+| 요청이 성공적으로 처리되었음을 나타냅니다.
+
+| 400 Bad Request
+| 요청이 잘못되었음을 나타냅니다.
+
+| 401 Unauthorized
+| 인증되지 않은 요청임을 나타냅니다.
+
+| 403 Forbidden
+| 요청이 거부되었음을 나타냅니다.
+
+| 404 Not Found
+| 요청한 리소스가 존재하지 않음을 나타냅니다.
+
+| 405 Method Not Allowed
+| 요청된 메소드가 허용되지 않음을 나타냅니다.
+
+| 500 Internal Server Error
+| 서버에 오류가 발생하였음을 나타냅니다.
+|===
