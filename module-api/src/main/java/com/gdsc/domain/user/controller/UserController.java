@@ -1,14 +1,16 @@
 package com.gdsc.domain.user.controller;
 
-import com.gdsc.auth.entity.User;
+import com.gdsc.domain.user.entity.User;
 import com.gdsc.domain.user.model.*;
 import com.gdsc.domain.user.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "사용자 정보", description = "사용자 정보 API")
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
