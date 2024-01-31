@@ -28,7 +28,7 @@ public class SwaggerConfig {
                 .title("Dofarming API Document")
                 .version("v0.0.1")
                 .description("Dofarming 문서")
-                .contact(new Contact().name("WanF-Project").url("https://github.com/Finna-GDSC/DoFarming_SERVER"))
+                .contact(new Contact().name("Dofarming-Project").url("https://github.com/Finna-GDSC/DoFarming_SERVER"))
                 .license(new License().name("MIT License").url("https://github.com/Finna-GDSC/DoFarming_SERVER/blob/main/LICENSE"));
 
         String authName = "Firebase token";
