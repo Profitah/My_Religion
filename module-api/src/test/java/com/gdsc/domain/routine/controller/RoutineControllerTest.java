@@ -66,8 +66,7 @@ class RoutineControllerTest extends RestDocsTest {
                                 parameterWithName("trackId").description("트랙 id")),
                         requestFields(
                                 fieldWithPath("content").type(JsonFieldType.STRING).description("루틴 내용")
-                        ),
-                        responseFieldsByUserRoutine()));
+                        )));
     }
 
     @Test

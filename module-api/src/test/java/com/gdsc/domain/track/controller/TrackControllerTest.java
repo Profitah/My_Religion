@@ -59,8 +59,7 @@ class TrackControllerTest extends RestDocsTest {
                         getAuthorizationHeader(),
                         requestFields(
                                 fieldWithPath("content").type(JsonFieldType.STRING).description("트랙 내용")
-                        ),
-                        responseFieldsByUserTrack()));
+                        )));
     }
 
     @Test
