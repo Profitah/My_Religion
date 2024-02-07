@@ -76,8 +76,7 @@ class TrackControllerTest extends RestDocsTest {
                 .andDo(document("get-tracks",
                         getDocumentRequest(),
                         getDocumentResponse(),
-                        getAuthorizationHeader(),
-                        responseFieldsByUserTrackList()));
+                        getAuthorizationHeader()));
     }
 
     @Test
@@ -96,8 +95,7 @@ class TrackControllerTest extends RestDocsTest {
                         getDocumentResponse(),
                         getAuthorizationHeader(),
                         pathParameters(
-                                parameterWithName("keyword").description("키워드")),
-                        responseFieldsByUserTrackList()));
+                                parameterWithName("keyword").description("키워드"))));
     }
 
     @DisplayName("트랙 삭제")

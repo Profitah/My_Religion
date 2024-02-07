@@ -86,8 +86,7 @@ class RoutineControllerTest extends RestDocsTest {
                         getDocumentResponse(),
                         getAuthorizationHeader(),
                         pathParameters(
-                                parameterWithName("trackId").description("트랙 id")),
-                        responseFieldsByUserRoutineList()));
+                                parameterWithName("trackId").description("트랙 id"))));
     }
 
     @Test
@@ -106,8 +105,7 @@ class RoutineControllerTest extends RestDocsTest {
                         getDocumentResponse(),
                         getAuthorizationHeader(),
                         pathParameters(
-                                parameterWithName("trackId").description("트랙 id")),
-                        responseFieldsByUserRoutineList()));
+                                parameterWithName("trackId").description("트랙 id"))));
     }
 
     @DisplayName("루틴 삭제")
