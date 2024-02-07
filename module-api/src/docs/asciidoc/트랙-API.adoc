@@ -23,7 +23,7 @@ operation::get-init-tracks[snippets='http-request,http-response,response-fields'
 
 [[트랙-삭제]]
 == 트랙 삭제
-operation::delete-track[snippets='http-request,path-parameters,http-response'
+operation::delete-track[snippets='http-request,path-parameters,http-response']
 
 [[전체-트랙-삭제]]
 == 전체 트랙 삭제
