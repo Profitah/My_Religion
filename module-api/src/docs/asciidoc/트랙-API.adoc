@@ -1,0 +1,30 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:leveloffset: 1
+:secttlinks:
+
+[[트랙-API]]
+= 트랙 API
+
+[[트랙-저장]]
+== 트랙 저장
+operation::user-track-save[snippets='http-request,request-fields,http-response,response-fields']
+
+[[트랙-조회]]
+== 트랙 조회
+operation::get-tracks[snippets='http-request,http-response,response-fields']
+
+[[초기-트랙-조회]]
+== 초기 트랙 조회
+operation::get-init-tracks[snippets='http-request,http-response,response-fields']
+
+[[트랙-삭제]]
+== 트랙 삭제
+operation::delete-track[snippets='http-request,path-parameters,http-response'
+
+[[전체-트랙-삭제]]
+== 전체 트랙 삭제
+operation::delete-all-track[snippets='http-request,http-response']
