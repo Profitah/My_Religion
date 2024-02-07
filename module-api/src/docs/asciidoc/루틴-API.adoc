@@ -1,0 +1,26 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:leveloffset: 1
+:secttlinks:
+
+[[루틴-API]]
+= 루틴 API
+
+[[루틴-저장]]
+== 루틴 저장
+operation::track-routine-save[snippets='http-request,path-parameters,request-fields,http-response,response-fields']
+
+[[루틴-조회]]
+== 루틴 조회
+operation::get-routines[snippets='http-request,path-parameters,http-response,response-fields']
+
+[[초기-루틴-조회]]
+== 초기 루틴 조회
+operation::get-init-routines[snippets='http-request,path-parameters,http-response,response-fields']
+
+[[루틴-삭제]]
+== 루틴 삭제
+operation::delete-routine[snippets='http-request,path-parameters,http-response']
