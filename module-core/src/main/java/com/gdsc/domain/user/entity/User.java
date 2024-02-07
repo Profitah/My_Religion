@@ -40,15 +40,6 @@ public class User implements UserDetails {
     @Column(name = "age", nullable = false)
     private Integer age;
 
-    @Column(name = "keyword1")
-    private String keyword1;
-
-    @Column(name = "keyword2")
-    private String keyword2;
-
-    @Column(name = "keyword3")
-    private String keyword3;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
@@ -56,13 +47,6 @@ public class User implements UserDetails {
     public void update(FirebaseToken token) {
         this.firebaseUid = token.getUid();
         this.email = token.getEmail();
-    }
-
-    public User updateKeywords(String keyword1, String keyword2, String keyword3) {
-        this.keyword1 = keyword1;
-        this.keyword2 = keyword2;
-        this.keyword3 = keyword3;
-        return this;
     }
 
     public User updateUser(String nickname, Gender gender, Integer age) {
