@@ -1,0 +1,22 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:leveloffset: 1
+:secttlinks:
+
+[[키워드-API]]
+= 키워드 API
+
+[[키워드-저장]]
+== 키워드 저장
+operation::user-keywords-save[snippets='http-request,request-fields,http-response,response-fields']
+
+[[키워드-조회]]
+== 키워드 조회
+operation::get-keywords[snippets='http-request,http-response,response-fields']
+
+[[초기-키워드-조회]]
+== 초기-키워드 조회
+operation::get-init-keywords[snippets='http-request,http-response,response-fields']
