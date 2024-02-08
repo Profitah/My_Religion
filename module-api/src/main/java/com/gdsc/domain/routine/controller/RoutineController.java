@@ -3,6 +3,7 @@ package com.gdsc.domain.routine.controller;
 import com.gdsc.domain.routine.entity.Routine;
 import com.gdsc.domain.routine.model.RoutineRequest;
 import com.gdsc.domain.routine.model.RoutineResponse;
+import com.gdsc.domain.routine.model.RoutineStatusRequest;
 import com.gdsc.domain.routine.service.RoutineService;
 import com.gdsc.domain.user.entity.User;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -37,6 +38,15 @@ public class RoutineController {
                                                        @PathVariable(value = "trackId") Long trackId,
                                                        @RequestBody @Validated RoutineRequest routineRequest){
         Routine routine = routineService.save(routineRequest, trackId, user);
+
+        return ResponseEntity.ok(RoutineResponse.of(routine));
+    }
+
+    @PatchMapping("/{routineId}")
+    public ResponseEntity<RoutineResponse> updateRoutineStatus(@AuthenticationPrincipal User user,
+                                                    @PathVariable(value = "routineId") Long routineId,
+                                                    @RequestBody @Validated RoutineStatusRequest routineStatusRequest){
+        Routine routine = routineService.updateStatus(routineStatusRequest, routineId, user);
 
         return ResponseEntity.ok(RoutineResponse.of(routine));
     }
