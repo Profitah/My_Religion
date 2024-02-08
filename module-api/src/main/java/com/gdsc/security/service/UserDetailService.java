@@ -1,6 +1,7 @@
 package com.gdsc.security.service;
 
 import com.gdsc.domain.user.entity.Gender;
+import com.gdsc.domain.user.entity.Mood;
 import com.gdsc.domain.user.entity.Role;
 import com.gdsc.domain.user.entity.User;
 import com.gdsc.domain.user.repository.UserRepository;
@@ -35,6 +36,7 @@ public class UserDetailService implements UserDetailsService {
                 .nickname("user" + UUID.randomUUID())
                 .gender(Gender.MALE)
                 .age(0)
+                .mood(Mood.CALM)
                 .role(role)
                 .build();
 

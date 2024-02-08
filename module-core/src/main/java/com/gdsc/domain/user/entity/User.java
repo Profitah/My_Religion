@@ -41,6 +41,10 @@ public class User implements UserDetails {
     private Integer age;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "mood", nullable = false)
+    private Mood mood;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
 
@@ -53,6 +57,11 @@ public class User implements UserDetails {
         this.nickname = nickname;
         this.gender = gender;
         this.age = age;
+        return this;
+    }
+
+    public User updateMood(Mood mood) {
+        this.mood = mood;
         return this;
     }
 
@@ -91,12 +100,13 @@ public class User implements UserDetails {
     }
 
     @Builder
-    public User(String firebaseUid, String email, String nickname, Gender gender, Integer age, Role role) {
+    public User(String firebaseUid, String email, String nickname, Gender gender, Integer age, Mood mood, Role role) {
         this.firebaseUid = firebaseUid;
         this.email = email;
         this.nickname = nickname;
         this.gender = gender;
         this.age = age;
+        this.mood = mood;
         this.role = role;
     }
 

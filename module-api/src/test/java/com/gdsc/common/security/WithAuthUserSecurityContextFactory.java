@@ -21,6 +21,7 @@ public class WithAuthUserSecurityContextFactory implements WithSecurityContextFa
                 .email(email)
                 .gender(annotation.gender())
                 .age(0)
+                .mood(annotation.mood())
                 .build();
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, null, List.of(new SimpleGrantedAuthority(role)));

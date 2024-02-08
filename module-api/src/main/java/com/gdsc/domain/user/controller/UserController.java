@@ -18,11 +18,19 @@ public class UserController {
     private final UserService userService;
 
     @PatchMapping("/info")
-    public ResponseEntity<UserResponse> updateUserInfo(@AuthenticationPrincipal User user,
-                                                       @RequestBody @Validated UserRequest userRequest) {
-        User updateUser = userService.updateUserInfo(userRequest, user);
+    public ResponseEntity<UserInfoResponse> updateUserInfo(@AuthenticationPrincipal User user,
+                                                           @RequestBody @Validated UserInfoRequest userInfoRequest) {
+        User updateUser = userService.updateUserInfo(userInfoRequest, user);
 
-        return ResponseEntity.ok(UserResponse.of(updateUser));
+        return ResponseEntity.ok(UserInfoResponse.of(updateUser));
+    }
+
+    @PatchMapping("/mood")
+    public ResponseEntity<UserMoodResponse> updateUserMood(@AuthenticationPrincipal User user,
+                                                           @RequestBody @Validated UserMoodRequest userMoodRequest) {
+        User updateUser = userService.updateUserMood(userMoodRequest, user);
+
+        return ResponseEntity.ok(UserMoodResponse.of(updateUser));
     }
 
     @GetMapping
