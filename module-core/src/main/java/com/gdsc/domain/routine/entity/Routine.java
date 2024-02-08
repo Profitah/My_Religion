@@ -1,6 +1,7 @@
 package com.gdsc.domain.routine.entity;
 
 import com.gdsc.domain.track.entity.Track;
+import com.gdsc.domain.user.entity.Role;
 import com.gdsc.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -21,6 +22,10 @@ public class Routine {
     @Column(name = "routine_content", nullable = false)
     private String content;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "routine_status", nullable = false)
+    private RoutineStatus routineStatus;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -30,9 +35,15 @@ public class Routine {
     private Track track;
 
     @Builder
-    public Routine(String content, User user, Track track) {
+    public Routine(String content, RoutineStatus routineStatus, User user, Track track) {
         this.content = content;
+        this.routineStatus = routineStatus;
         this.user = user;
         this.track = track;
+    }
+
+    public Routine updateStatus(RoutineStatus routineStatus){
+        this.routineStatus = routineStatus;
+        return this;
     }
 }
