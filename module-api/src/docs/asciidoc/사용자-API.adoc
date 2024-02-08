@@ -15,6 +15,8 @@ operation::user-info-update[snippets='http-request,request-fields,http-response,
 
 [[사용자-기분-변경]]
 == 사용자 기분 변경
+평온해(CALM), 나른해(DROWSY), 행복해(HAPPY), 뿌듯해(PROUD), 신나(EXCITED), 슬퍼(SAD), 멘붕(NERVOUS), 피곤해(TIRED), 짜증나(ANGRY)
+
 operation::user-mood-update[snippets='http-request,request-fields,http-response,response-fields']
 
 [[사용자-전체-정보-조회]]
