@@ -3,7 +3,9 @@ package com.gdsc.domain.routine.service;
 import com.gdsc.common.exception.ApplicationErrorException;
 import com.gdsc.common.exception.ApplicationErrorType;
 import com.gdsc.domain.routine.entity.Routine;
+import com.gdsc.domain.routine.entity.RoutineStatus;
 import com.gdsc.domain.routine.model.RoutineRequest;
+import com.gdsc.domain.routine.model.RoutineStatusRequest;
 import com.gdsc.domain.routine.repo.RoutineRepository;
 import com.gdsc.domain.track.entity.Track;
 import com.gdsc.domain.track.service.TrackService;
@@ -31,11 +33,23 @@ public class RoutineService {
 
         Routine routine = Routine.builder()
                 .content(routineRequest.content())
+                .routineStatus(RoutineStatus.PROCEEDING)
                 .track(track)
                 .user(user)
                 .build();
 
         return routineRepository.save(routine);
+    }
+
+    @Transactional
+    public Routine updateStatus(RoutineStatusRequest routineStatusRequest, Long routineId, User user){
+        Routine routine = findById(routineId);
+
+        if (isNotSameWriter(routine, user)) {
+            throw new ApplicationErrorException(ApplicationErrorType.NO_AUTHENTICATION, String.format("해당 루틴(%s)에 접근 권한이 없습니다.", routineId));
+        }
+
+        return routine.updateStatus(routineStatusRequest.routineStatus());
     }
 
     @Transactional

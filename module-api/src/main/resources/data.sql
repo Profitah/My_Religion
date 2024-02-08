@@ -11,9 +11,9 @@ INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (1,"나를
 INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (2,"불면증 극복",1,8);
 INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (3,"우울증 완화",1,8);
 INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (4,"가족과의 시간",1,8);
-INSERT INTO routine (routine_num,routine_content,user_id,track_id) VALUES (1,"좋아하는 음악",1,1);
-INSERT INTO routine (routine_num,routine_content,user_id,track_id) VALUES (2,"샤워",1,1);
-INSERT INTO routine (routine_num,routine_content,user_id,track_id) VALUES (3,"스킨케어",1,1);
-INSERT INTO routine (routine_num,routine_content,user_id,track_id) VALUES (4,"마스크팩",1,1);
-INSERT INTO routine (routine_num,routine_content,user_id,track_id) VALUES (5,"림프관 마사지",1,1);
-INSERT INTO routine (routine_num,routine_content,user_id,track_id) VALUES (6,"립밤 바르기",1,1);
+INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (1,"좋아하는 음악","PROCEEDING",1,1);
+INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (2,"샤워","PROCEEDING",1,1);
+INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (3,"스킨케어","PROCEEDING",1,1);
+INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (4,"마스크팩","PROCEEDING",1,1);
+INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (5,"림프관 마사지","PROCEEDING",1,1);
+INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (6,"립밤 바르기","PROCEEDING",1,1);
