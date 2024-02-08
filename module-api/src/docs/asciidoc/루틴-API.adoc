@@ -21,6 +21,10 @@ operation::get-routines[snippets='http-request,path-parameters,http-response,res
 == 초기 루틴 조회
 operation::get-init-routines[snippets='http-request,path-parameters,http-response,response-fields']
 
+[[루틴-상태-변경]]
+== 루틴 상태 변경
+operation::routine-status-update[snippets='http-request,path-parameters,request-fields,http-response,response-fields']
+
 [[루틴-삭제]]
 == 루틴 삭제
 operation::delete-routine[snippets='http-request,path-parameters,http-response']

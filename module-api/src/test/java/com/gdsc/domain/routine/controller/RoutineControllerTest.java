@@ -5,6 +5,7 @@ import com.gdsc.domain.keyword.model.KeywordRequest;
 import com.gdsc.domain.keyword.service.KeywordService;
 import com.gdsc.domain.routine.entity.Routine;
 import com.gdsc.domain.routine.model.RoutineRequest;
+import com.gdsc.domain.routine.model.RoutineStatusRequest;
 import com.gdsc.domain.routine.service.RoutineService;
 import com.gdsc.domain.track.controller.TrackController;
 import com.gdsc.domain.track.model.TrackRequest;
@@ -12,6 +13,7 @@ import com.gdsc.domain.track.service.TrackService;
 import com.gdsc.domain.user.entity.User;
 import com.gdsc.common.security.WithAuthUser;
 import com.gdsc.docs.util.RestDocsTest;
+import com.gdsc.domain.user.model.UserMoodRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -27,9 +29,7 @@ import static com.gdsc.fixture.DomainFixture.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.delete;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
@@ -107,6 +107,29 @@ class RoutineControllerTest extends RestDocsTest {
                                 parameterWithName("trackId").description("트랙 id"))));
     }
 
+    @Test
+    @DisplayName("루틴의 상태를 변경한다.")
+    @WithAuthUser
+    void update_routine_status() throws Exception {
+        //given
+        given(routineService.updateStatus(any(RoutineStatusRequest.class),any(Long.class),any(User.class))).willReturn(완료_루틴);
+        //when & then
+        mvc.perform(patch(REQUEST_URL + "/{routineId}", 1L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(createJson(유저_루틴_상태_변경_요청1))
+                        .header("Authorization", "Bearer FirebaseToken"))
+                .andExpect(status().isOk())
+                .andDo(document("routine-status-update",
+                        getDocumentRequest(),
+                        getDocumentResponse(),
+                        getAuthorizationHeader(),
+                        pathParameters(
+                                parameterWithName("routineId").description("루틴 id")),
+                        requestFields(
+                                fieldWithPath("routineStatus").type(JsonFieldType.STRING).description("변경할 상태")
+                        )));
+    }
+
     @DisplayName("루틴 삭제")
     @Test
     void delete_routine() throws Exception{
@@ -126,7 +149,8 @@ class RoutineControllerTest extends RestDocsTest {
     private static ResponseFieldsSnippet responseFieldsByUserRoutine() {
         return responseFields(
                 fieldWithPath("routineId").type(JsonFieldType.NUMBER).description("루틴 id"),
-                fieldWithPath("content").type(JsonFieldType.STRING).description("루틴 내용")
+                fieldWithPath("content").type(JsonFieldType.STRING).description("루틴 내용"),
+                fieldWithPath("routineStatus").type(JsonFieldType.STRING).description("루틴 상태")
         );
     }
 
