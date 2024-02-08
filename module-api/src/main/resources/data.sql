@@ -1,4 +1,4 @@
-INSERT INTO users (id,email,username,nickname,gender,role,age) VALUES (1,'admin@naver.com','admin','admin','MALE','ROLE_ADMIN',0);
+INSERT INTO users (id,email,username,nickname,gender,role,age,mood) VALUES (1,'admin@naver.com','admin','admin','MALE','ROLE_ADMIN',0,"HAPPY");
 INSERT INTO keyword (keyword_num,user_id,keyword_content) VALUES (1,1,"학업/취업");
 INSERT INTO keyword (keyword_num,user_id,keyword_content) VALUES (2,1,"직장생활");
 INSERT INTO keyword (keyword_num,user_id,keyword_content) VALUES (3,1,"사랑");
