@@ -40,3 +40,13 @@ spring:
   sql:
     init:
       mode: always
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+logging:
+  discord:
+    webhook-url: ${DISCORD_WEBHOOK_URL}
+  config: classpath:logback-spring.xml
