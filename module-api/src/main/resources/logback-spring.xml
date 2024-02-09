@@ -8,7 +8,7 @@
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%d{HH:mm:ss} [%thread] [%-5level] %logger{36} - %msg%n```%ex{full}```</pattern>
         </layout>
-        <username>Helfy-logback</username>
+        <username>FINNA-logback</username>
         <avatarUrl>https://cdn-icons-png.flaticon.com/512/1383/1383395.png</avatarUrl>
         <tts>false</tts>
     </appender>
