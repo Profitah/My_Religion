@@ -27,6 +27,7 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 
 }
@@ -46,6 +47,7 @@ subprojects { subproject ->
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation group: 'com.google.firebase', name: 'firebase-admin', version: '8.0.1'
         implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'com.github.napstr:logback-discord-appender:1.0.0'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         runtimeOnly 'com.mysql:mysql-connector-j'
         annotationProcessor 'org.projectlombok:lombok'
