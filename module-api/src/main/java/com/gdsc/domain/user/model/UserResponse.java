@@ -7,12 +7,14 @@ import lombok.Builder;
 
 @Builder
 public record UserResponse (
+        String image,
         String nickname,
         Gender gender,
         Integer age,
         Mood mood) {
     public static UserResponse of(User user) {
         return UserResponse.builder()
+                .image(user.getImage())
                 .nickname(user.getNickname())
                 .gender(user.getGender())
                 .age(user.getAge())

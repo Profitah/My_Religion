@@ -33,6 +33,7 @@ public class UserDetailService implements UserDetailsService {
         User user = User.builder()
                 .firebaseUid(firebaseToken.getUid())
                 .email(firebaseToken.getEmail())
+                .image(firebaseToken.getPicture())
                 .nickname("user" + UUID.randomUUID())
                 .gender(Gender.MALE)
                 .age(0)
