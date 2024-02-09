@@ -13,18 +13,17 @@ import java.util.List;
 public class WithAuthUserSecurityContextFactory implements WithSecurityContextFactory<WithAuthUser> {
     @Override
     public SecurityContext createSecurityContext(WithAuthUser annotation) {
-        String email = annotation.email();
-        String role = annotation.role();
 
         User user = User.builder()
+                .image(annotation.image())
                 .nickname(annotation.username())
-                .email(email)
+                .email(annotation.email())
                 .gender(annotation.gender())
                 .age(0)
                 .mood(annotation.mood())
                 .build();
 
-        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, null, List.of(new SimpleGrantedAuthority(role)));
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, null, List.of(new SimpleGrantedAuthority(annotation.role())));
         SecurityContext context = SecurityContextHolder.getContext();
         context.setAuthentication(token);
         return context;

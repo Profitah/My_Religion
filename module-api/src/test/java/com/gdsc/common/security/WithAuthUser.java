@@ -12,7 +12,7 @@ import java.lang.annotation.RetentionPolicy;
 public @interface WithAuthUser {
     String username() default "username";
     String email() default "email";
-    String picture() default "picture url";
+    String image() default "image url";
     Gender gender() default Gender.MALE;
 
     Mood mood() default Mood.CALM;
