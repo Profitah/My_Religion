@@ -24,6 +24,7 @@ public class DomainFixture {
             .firebaseUid("firebaseUid1")
             .nickname("닉네임")
             .email("dofarming@gmail.com")
+            .image("image")
             .gender(Gender.MALE)
             .age(0)
             .mood(Mood.CALM)
@@ -34,6 +35,7 @@ public class DomainFixture {
             .firebaseUid("firebaseUid2")
             .nickname("닉네임")
             .email("dofarming@gmail.com")
+            .image("image")
             .gender(Gender.MALE)
             .age(0)
             .mood(Mood.CALM)
@@ -147,7 +149,7 @@ public class DomainFixture {
 
     public static final List<Routine> 루틴_초기_리스트 = Arrays.asList(루틴4, 루틴5, 루틴6);
 
-    public static final UserInfoRequest 유저_정보_변경_요청1 = new UserInfoRequest("닉네임 변경", Gender.MALE, 20);
+    public static final UserInfoRequest 유저_정보_변경_요청1 = new UserInfoRequest("변경된 이미지","닉네임 변경", Gender.MALE, 20);
     public static final UserMoodRequest 유저_기분_변경_요청1 = new UserMoodRequest(Mood.HAPPY);
 
     public static final KeywordRequest 유저_키워드_저장_요청1 = new KeywordRequest(List.of("키워드1", "키워드2", "키워드3"));

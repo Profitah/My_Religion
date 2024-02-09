@@ -52,6 +52,7 @@ class UserControllerTest extends RestDocsTest {
                         getDocumentResponse(),
                         getAuthorizationHeader(),
                         requestFields(
+                                fieldWithPath("image").type(JsonFieldType.STRING).description("변경할 이미지 URL"),
                                 fieldWithPath("nickname").type(JsonFieldType.STRING).description("변경할 닉네임"),
                                 fieldWithPath("gender").type(JsonFieldType.STRING).description("변경할 성별"),
                                 fieldWithPath("age").type(JsonFieldType.NUMBER).description("변경할 나이")
@@ -100,6 +101,7 @@ class UserControllerTest extends RestDocsTest {
 
     private static ResponseFieldsSnippet responseFieldsByUserInfo() {
         return responseFields(
+                fieldWithPath("image").type(JsonFieldType.STRING).description("이미지 URL"),
                 fieldWithPath("nickname").type(JsonFieldType.STRING).description("닉네임"),
                 fieldWithPath("gender").type(JsonFieldType.STRING).description("성별"),
                 fieldWithPath("age").type(JsonFieldType.NUMBER).description("나이")
@@ -108,6 +110,7 @@ class UserControllerTest extends RestDocsTest {
 
     private static ResponseFieldsSnippet responseFieldsByUser() {
         return responseFields(
+                fieldWithPath("image").type(JsonFieldType.STRING).description("이미지 URL"),
                 fieldWithPath("nickname").type(JsonFieldType.STRING).description("닉네임"),
                 fieldWithPath("gender").type(JsonFieldType.STRING).description("성별"),
                 fieldWithPath("age").type(JsonFieldType.NUMBER).description("나이"),

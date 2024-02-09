@@ -30,6 +30,9 @@ public class User implements UserDetails {
     @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name = "image", nullable = false)
+    private String image;
+
     @Column(name = "nickname", nullable = false)
     private String nickname;
 
@@ -53,7 +56,8 @@ public class User implements UserDetails {
         this.email = token.getEmail();
     }
 
-    public User updateUser(String nickname, Gender gender, Integer age) {
+    public User updateUser(String image, String nickname, Gender gender, Integer age) {
+        this.image = image;
         this.nickname = nickname;
         this.gender = gender;
         this.age = age;
@@ -100,9 +104,10 @@ public class User implements UserDetails {
     }
 
     @Builder
-    public User(String firebaseUid, String email, String nickname, Gender gender, Integer age, Mood mood, Role role) {
+    public User(String firebaseUid, String email, String image, String nickname, Gender gender, Integer age, Mood mood, Role role) {
         this.firebaseUid = firebaseUid;
         this.email = email;
+        this.image = image;
         this.nickname = nickname;
         this.gender = gender;
         this.age = age;

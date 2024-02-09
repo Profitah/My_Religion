@@ -18,7 +18,7 @@ public class UserService {
     public User updateUserInfo(UserInfoRequest userInfoRequest, User user) {
         User findUser = userDetailService.loadUserByUsername(user.getFirebaseUid());
 
-        return findUser.updateUser(userInfoRequest.nickname(), userInfoRequest.gender(), userInfoRequest.age());
+        return findUser.updateUser(userInfoRequest.image(), userInfoRequest.nickname(), userInfoRequest.gender(), userInfoRequest.age());
     }
 
     @Transactional
