@@ -13,6 +13,8 @@ public enum ApplicationErrorType {
     INVALID_FIREBASE_TOKEN(HttpStatus.BAD_REQUEST, "Firebase 토큰이 올바르지 않습니다."),
     //401
     NO_AUTHENTICATION(HttpStatus.UNAUTHORIZED, "인증되지 않은 사용자입니다."),
+    //403
+    EXPIRED_FIREBASE_TOKEN(HttpStatus.FORBIDDEN, "Firebase 토큰이 만료되었습니다."),
     //404
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "사용자를 찾을 수 없습니다."),
     TRACK_NOT_FOUND(HttpStatus.NOT_FOUND, "트랙을 찾을 수 없습니다."),
