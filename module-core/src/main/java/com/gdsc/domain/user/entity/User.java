@@ -54,10 +54,10 @@ public class User implements UserDetails {
     public void update(FirebaseToken token) {
         this.firebaseUid = token.getUid();
         this.email = token.getEmail();
+        this.image = token.getPicture();
     }
 
-    public User updateUser(String image, String nickname, Gender gender, Integer age) {
-        this.image = image;
+    public User updateUser(String nickname, Gender gender, Integer age) {
         this.nickname = nickname;
         this.gender = gender;
         this.age = age;

@@ -6,8 +6,6 @@ import jakarta.validation.constraints.NotBlank;
 
 public record UserInfoRequest(
         @NotBlank
-        String image,
-        @NotBlank
         String nickname,
         @NotBlank
         Gender gender,
