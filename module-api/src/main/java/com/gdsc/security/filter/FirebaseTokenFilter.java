@@ -7,6 +7,7 @@ import com.gdsc.security.service.UserDetailService;
 import com.gdsc.common.exception.ApplicationErrorException;
 import com.gdsc.common.exception.ApplicationErrorType;
 import com.gdsc.common.model.ErrorResponseDto;
+import com.google.firebase.auth.AuthErrorCode;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
@@ -48,10 +49,18 @@ public class FirebaseTokenFilter extends OncePerRequestFilter {
             authenticateUser(user);
 
         } catch (FirebaseAuthException e) {
-            handleFirebaseError(response, ApplicationErrorType.INVALID_FIREBASE_TOKEN);
+            handleFirebaseError(response, e);
             return;
         }
         filterChain.doFilter(request, response);
+    }
+
+    private void handleFirebaseError(HttpServletResponse response, FirebaseAuthException e) throws IOException {
+        if (e.getAuthErrorCode().equals(AuthErrorCode.EXPIRED_ID_TOKEN)) {
+            handleFirebaseError(response, ApplicationErrorType.EXPIRED_FIREBASE_TOKEN);
+        } else {
+            handleFirebaseError(response, ApplicationErrorType.INVALID_FIREBASE_TOKEN);
+        }
     }
 
     private boolean isInvalidHeader(String header) {
@@ -74,12 +83,12 @@ public class FirebaseTokenFilter extends OncePerRequestFilter {
     }
 
     private void handleFirebaseError(HttpServletResponse response, ApplicationErrorType applicationErrorType) throws IOException {
-        setErrorResponseHeader(HttpStatus.UNAUTHORIZED, response);
+        setErrorResponseHeader(response);
         setErrorResponseBody(response, applicationErrorType);
     }
 
-    private void setErrorResponseHeader(HttpStatus status, HttpServletResponse response) throws IOException {
-        response.setStatus(status.value());
+    private void setErrorResponseHeader(HttpServletResponse response) throws IOException {
+        response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
     }
