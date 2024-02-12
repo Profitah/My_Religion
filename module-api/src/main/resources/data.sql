@@ -7,10 +7,10 @@ INSERT INTO keyword (keyword_num,user_id,keyword_content) VALUES (5,1,"경제적
 INSERT INTO keyword (keyword_num,user_id,keyword_content) VALUES (6,1,"자존감");
 INSERT INTO keyword (keyword_num,user_id,keyword_content) VALUES (7,1,"미래에 대한 불안감");
 INSERT INTO keyword (keyword_num,user_id,keyword_content) VALUES (8,1,"건강");
-INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (1,"나를 가꾸는 시간",1,8);
-INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (2,"불면증 극복",1,8);
-INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (3,"우울증 완화",1,8);
-INSERT INTO track (track_num,track_content,user_id,keyword_id) VALUES (4,"가족과의 시간",1,8);
+INSERT INTO track (track_num,track_content,track_status,track_start_date,track_end_date,user_id,keyword_id) VALUES (1,"나를 가꾸는 시간","EXPIRATION","2024-1-1","2024-12-31",1,8);
+INSERT INTO track (track_num,track_content,track_status,track_start_date,track_end_date,user_id,keyword_id) VALUES (2,"불면증 극복","EXPIRATION","2024-1-1","2024-12-31",1,8);
+INSERT INTO track (track_num,track_content,track_status,track_start_date,track_end_date,user_id,keyword_id) VALUES (3,"우울증 완화","EXPIRATION","2024-1-1","2024-12-31",1,8);
+INSERT INTO track (track_num,track_content,track_status,track_start_date,track_end_date,user_id,keyword_id) VALUES (4,"가족과의 시간","PROCEEDING","2024-1-1","2024-02-12",1,8);
 INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (1,"좋아하는 음악","PROCEEDING",1,1);
 INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (2,"샤워","PROCEEDING",1,1);
 INSERT INTO routine (routine_num,routine_content,routine_status,user_id,track_id) VALUES (3,"스킨케어","PROCEEDING",1,1);
