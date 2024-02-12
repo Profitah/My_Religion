@@ -58,7 +58,7 @@ public class TrackController {
 
     @DeleteMapping
     public ResponseEntity<Void> deleteAllTrack(@AuthenticationPrincipal User user){
-        trackService.delete(user);
+        trackService.deleteAll(user);
 
         return ResponseEntity.noContent().build();
     }

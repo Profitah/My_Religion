@@ -2,6 +2,7 @@ package com.gdsc.domain.track.repo;
 
 import com.gdsc.domain.keyword.entity.Keyword;
 import com.gdsc.domain.track.entity.Track;
+import com.gdsc.domain.track.entity.TrackStatus;
 import com.gdsc.domain.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -15,4 +16,6 @@ public interface TrackRepository extends JpaRepository<Track, Long> {
     Optional<List<Track>> findByUser(User user);
 
     void deleteByUser(User user);
+
+    Optional<List<Track>> findByTrackStatus(TrackStatus trackStatus);
 }
