@@ -53,12 +53,7 @@ class TrackControllerTest extends RestDocsTest {
                 .andDo(document("user-track-save",
                         getDocumentRequest(),
                         getDocumentResponse(),
-                        getAuthorizationHeader(),
-                        requestFields(
-                                fieldWithPath("content").type(JsonFieldType.STRING).description("트랙 내용"),
-                                fieldWithPath("startDate").type(JsonFieldType.STRING).description("시작 날짜"),
-                                fieldWithPath("endDate").type(JsonFieldType.STRING).description("종료 날짜")
-                        )));
+                        getAuthorizationHeader()));
     }
 
     @Test
