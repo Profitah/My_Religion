@@ -1,8 +1,5 @@
 package com.gdsc.domain.track.controller;
 
-import com.gdsc.domain.keyword.controller.KeywordController;
-import com.gdsc.domain.keyword.model.KeywordRequest;
-import com.gdsc.domain.keyword.service.KeywordService;
 import com.gdsc.domain.track.model.TrackRequest;
 import com.gdsc.domain.track.service.TrackService;
 import com.gdsc.domain.user.entity.User;
@@ -58,7 +55,9 @@ class TrackControllerTest extends RestDocsTest {
                         getDocumentResponse(),
                         getAuthorizationHeader(),
                         requestFields(
-                                fieldWithPath("content").type(JsonFieldType.STRING).description("트랙 내용")
+                                fieldWithPath("content").type(JsonFieldType.STRING).description("트랙 내용"),
+                                fieldWithPath("startDate").type(JsonFieldType.STRING).description("시작 날짜"),
+                                fieldWithPath("endDate").type(JsonFieldType.STRING).description("종료 날짜")
                         )));
     }
 
@@ -83,7 +82,7 @@ class TrackControllerTest extends RestDocsTest {
     @WithAuthUser
     void get_init_tracks() throws Exception {
         //given
-        given(trackService.findByKeywordContent("키워드1")).willReturn(트랙_초기_리스트);
+        given(trackService.findByKeyword("키워드1")).willReturn(트랙_초기_리스트);
         //when & then
         mvc.perform(get(REQUEST_URL + "/{keyword}", "키워드1")
                         .queryParam("keyword", "키워드")
@@ -130,7 +129,10 @@ class TrackControllerTest extends RestDocsTest {
     private static ResponseFieldsSnippet responseFieldsByUserTrack() {
         return responseFields(
                 fieldWithPath("trackId").type(JsonFieldType.NUMBER).description("트랙 id"),
-                fieldWithPath("content").type(JsonFieldType.STRING).description("트랙 내용")
+                fieldWithPath("content").type(JsonFieldType.STRING).description("트랙 내용"),
+                fieldWithPath("startDate").type(JsonFieldType.STRING).description("시작 날짜"),
+                fieldWithPath("endDate").type(JsonFieldType.STRING).description("종료 날짜"),
+                fieldWithPath("trackStatus").type(JsonFieldType.STRING).description("트랙 상태")
         );
     }
 
@@ -138,7 +140,10 @@ class TrackControllerTest extends RestDocsTest {
         return responseFields(
                 fieldWithPath("[]").type(JsonFieldType.ARRAY).description("트랙 리스트"),
                 fieldWithPath("[].trackId").type(JsonFieldType.NUMBER).description("트랙 id"),
-                fieldWithPath("[].content").type(JsonFieldType.STRING).description("트랙 내용")
+                fieldWithPath("[].content").type(JsonFieldType.STRING).description("트랙 내용"),
+                fieldWithPath("[].startDate").type(JsonFieldType.STRING).description("시작 날짜"),
+                fieldWithPath("[].endDate").type(JsonFieldType.STRING).description("종료 날짜"),
+                fieldWithPath("[].trackStatus").type(JsonFieldType.STRING).description("트랙 상태")
         );
     }
 

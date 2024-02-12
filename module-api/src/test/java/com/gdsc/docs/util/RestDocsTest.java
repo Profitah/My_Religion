@@ -1,5 +1,6 @@
 package com.gdsc.docs.util;
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.gdsc.docs.config.RestDocsConfig;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,6 +35,7 @@ public class RestDocsTest {
     }
 
     protected String createJson(Object dto) throws JsonProcessingException {
+        objectMapper.registerModule(new JavaTimeModule());
         return objectMapper.writeValueAsString(dto);
     }
 }

@@ -7,6 +7,7 @@ import com.gdsc.domain.routine.entity.RoutineStatus;
 import com.gdsc.domain.routine.model.RoutineRequest;
 import com.gdsc.domain.routine.model.RoutineStatusRequest;
 import com.gdsc.domain.track.entity.Track;
+import com.gdsc.domain.track.entity.TrackStatus;
 import com.gdsc.domain.track.model.TrackRequest;
 import com.gdsc.domain.user.entity.Gender;
 import com.gdsc.domain.user.entity.Mood;
@@ -15,6 +16,7 @@ import com.gdsc.domain.user.entity.User;
 import com.gdsc.domain.user.model.UserInfoRequest;
 import com.gdsc.domain.user.model.UserMoodRequest;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -59,33 +61,51 @@ public class DomainFixture {
 
     public static final Track 트랙1 = Track.builder()
             .content("내용1")
+            .trackStatus(TrackStatus.PROCEEDING)
+            .startDate(LocalDate.parse("2024-02-12"))
+            .endDate(LocalDate.parse("2024-02-13"))
             .user(유저1)
             .build();
 
     public static final Track 트랙2 = Track.builder()
             .content("내용2")
+            .trackStatus(TrackStatus.PROCEEDING)
+            .startDate(LocalDate.parse("2024-02-12"))
+            .endDate(LocalDate.parse("2024-02-13"))
             .user(유저1)
             .build();
 
     public static final Track 트랙3 = Track.builder()
             .content("내용3")
+            .trackStatus(TrackStatus.PROCEEDING)
+            .startDate(LocalDate.parse("2024-02-12"))
+            .endDate(LocalDate.parse("2024-02-13"))
             .user(유저1)
             .build();
 
     public static final Track 트랙4 = Track.builder()
             .content("내용1")
+            .trackStatus(TrackStatus.PROCEEDING)
+            .startDate(LocalDate.parse("2024-02-12"))
+            .endDate(LocalDate.parse("2024-02-13"))
             .user(유저2)
             .keyword(키워드1)
             .build();
 
     public static final Track 트랙5 = Track.builder()
             .content("내용2")
+            .trackStatus(TrackStatus.PROCEEDING)
+            .startDate(LocalDate.parse("2024-02-12"))
+            .endDate(LocalDate.parse("2024-02-13"))
             .user(유저2)
             .keyword(키워드1)
             .build();
 
     public static final Track 트랙6 = Track.builder()
             .content("내용3")
+            .trackStatus(TrackStatus.PROCEEDING)
+            .startDate(LocalDate.parse("2024-02-12"))
+            .endDate(LocalDate.parse("2024-02-13"))
             .user(유저2)
             .keyword(키워드1)
             .build();
@@ -154,7 +174,7 @@ public class DomainFixture {
 
     public static final KeywordRequest 유저_키워드_저장_요청1 = new KeywordRequest(List.of("키워드1", "키워드2", "키워드3"));
 
-    public static final TrackRequest 유저_트랙_저장_요청1 = new TrackRequest("내용");
+    public static final TrackRequest 유저_트랙_저장_요청1 = new TrackRequest("내용",LocalDate.parse("2024-02-12"),LocalDate.parse("2024-02-13"));
     public static final RoutineRequest 유저_루틴_저장_요청1 = new RoutineRequest("내용");
     public static final RoutineStatusRequest 유저_루틴_상태_변경_요청1 = new RoutineStatusRequest(RoutineStatus.COMPLETE);
 }
