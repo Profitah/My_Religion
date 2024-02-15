@@ -6,10 +6,12 @@ import lombok.Builder;
 
 @Builder
 public record UserMoodResponse (
-        Mood mood) {
+        Mood mood,
+        String imgUrl) {
     public static UserMoodResponse of(User user) {
         return UserMoodResponse.builder()
                 .mood(user.getMood())
+                .imgUrl(user.getMood().getImgUrl())
                 .build();
     }
 }

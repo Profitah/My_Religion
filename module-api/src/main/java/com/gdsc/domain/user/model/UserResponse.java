@@ -11,7 +11,8 @@ public record UserResponse (
         String nickname,
         Gender gender,
         Integer age,
-        Mood mood) {
+        Mood mood,
+        String moodImgUrl) {
     public static UserResponse of(User user) {
         return UserResponse.builder()
                 .image(user.getImage())
@@ -19,6 +20,7 @@ public record UserResponse (
                 .gender(user.getGender())
                 .age(user.getAge())
                 .mood(user.getMood())
+                .moodImgUrl(user.getMood().getImgUrl())
                 .build();
     }
 }
