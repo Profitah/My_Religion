@@ -79,7 +79,8 @@ class UserControllerTest extends RestDocsTest {
                                 fieldWithPath("mood").type(JsonFieldType.STRING).description("변경할 기분")
                         ),
                         responseFields(
-                                fieldWithPath("mood").type(JsonFieldType.STRING).description("기분")
+                                fieldWithPath("mood").type(JsonFieldType.STRING).description("기분"),
+                                fieldWithPath("imgUrl").type(JsonFieldType.STRING).description("기분 이미지 URL")
                         )));
     }
 
@@ -112,7 +113,8 @@ class UserControllerTest extends RestDocsTest {
                 fieldWithPath("nickname").type(JsonFieldType.STRING).description("닉네임"),
                 fieldWithPath("gender").type(JsonFieldType.STRING).description("성별"),
                 fieldWithPath("age").type(JsonFieldType.NUMBER).description("나이"),
-                fieldWithPath("mood").type(JsonFieldType.STRING).description("기분")
+                fieldWithPath("mood").type(JsonFieldType.STRING).description("기분"),
+                fieldWithPath("moodImgUrl").type(JsonFieldType.STRING).description("기분 이미지 URL")
         );
     }
 
