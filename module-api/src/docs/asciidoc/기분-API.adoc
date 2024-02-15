@@ -1,0 +1,14 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:leveloffset: 1
+:secttlinks:
+
+[[기분-API]]
+= 기분 API
+
+[[모든-기분-URL]]
+== 모든 기분 URL 조회
+operation::moods-list[snippets='http-request,http-response']
