@@ -1,5 +1,7 @@
 package com.gdsc.domain.user.controller;
 
+import com.gdsc.domain.image.entity.Image;
+import com.gdsc.domain.image.service.ImageService;
 import com.gdsc.domain.user.entity.User;
 import com.gdsc.domain.user.model.*;
 import com.gdsc.domain.user.service.UserService;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Tag(name = "사용자 정보", description = "사용자 정보 API")
 @RestController
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    private final ImageService imageService;
 
     @PatchMapping("/info")
     public ResponseEntity<UserInfoResponse> updateUserInfo(@AuthenticationPrincipal User user,
@@ -31,6 +35,14 @@ public class UserController {
         User updateUser = userService.updateUserMood(userMoodRequest, user);
 
         return ResponseEntity.ok(UserMoodResponse.of(updateUser));
+    }
+
+    @PutMapping(value = "/image", consumes = "multipart/form-data")
+    public ResponseEntity<UserResponse> updateUserImage(@AuthenticationPrincipal User user,
+                                                        @RequestPart MultipartFile multipartFile) {
+        User updateUser = userService.updateUserImage(multipartFile, user);
+
+        return ResponseEntity.ok(UserResponse.of(updateUser));
     }
 
     @GetMapping

@@ -1,5 +1,6 @@
 package com.gdsc.domain.user.entity;
 
+import com.gdsc.domain.image.entity.Image;
 import com.google.common.base.Objects;
 import com.google.firebase.auth.FirebaseToken;
 import jakarta.persistence.*;
@@ -30,8 +31,9 @@ public class User implements UserDetails {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "image", nullable = false)
-    private String image;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "image_id")
+    private Image image;
 
     @Column(name = "nickname", nullable = false)
     private String nickname;
@@ -54,7 +56,6 @@ public class User implements UserDetails {
     public void update(FirebaseToken token) {
         this.firebaseUid = token.getUid();
         this.email = token.getEmail();
-        this.image = token.getPicture();
     }
 
     public User updateUser(String nickname, Gender gender, Integer age) {
@@ -66,6 +67,11 @@ public class User implements UserDetails {
 
     public User updateMood(Mood mood) {
         this.mood = mood;
+        return this;
+    }
+
+    public User updateImage(Image image){
+        this.image = image;
         return this;
     }
 
@@ -104,7 +110,7 @@ public class User implements UserDetails {
     }
 
     @Builder
-    public User(String firebaseUid, String email, String image, String nickname, Gender gender, Integer age, Mood mood, Role role) {
+    public User(String firebaseUid, String email, Image image, String nickname, Gender gender, Integer age, Mood mood, Role role) {
         this.firebaseUid = firebaseUid;
         this.email = email;
         this.image = image;

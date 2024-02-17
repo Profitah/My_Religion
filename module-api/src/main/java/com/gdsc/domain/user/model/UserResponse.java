@@ -7,7 +7,7 @@ import lombok.Builder;
 
 @Builder
 public record UserResponse (
-        String image,
+        String profileImageUrl,
         String nickname,
         Gender gender,
         Integer age,
@@ -15,7 +15,7 @@ public record UserResponse (
         String moodImgUrl) {
     public static UserResponse of(User user) {
         return UserResponse.builder()
-                .image(user.getImage())
+                .profileImageUrl(user.getImage().getImageUrl())
                 .nickname(user.getNickname())
                 .gender(user.getGender())
                 .age(user.getAge())

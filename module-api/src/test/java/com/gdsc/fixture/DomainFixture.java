@@ -1,5 +1,6 @@
 package com.gdsc.fixture;
 
+import com.gdsc.domain.image.entity.Image;
 import com.gdsc.domain.keyword.entity.Keyword;
 import com.gdsc.domain.keyword.model.KeywordRequest;
 import com.gdsc.domain.routine.entity.Routine;
@@ -22,11 +23,21 @@ import java.util.List;
 
 public class DomainFixture {
 
+    public static final Image 이미지1 = Image.builder()
+            .imageUrl("image url")
+            .uuid("uuid")
+            .build();
+
+    public static final Image 이미지2 = Image.builder()
+            .imageUrl("image url")
+            .uuid("uuid")
+            .build();
+
     public static final User 유저1 = User.builder()
             .firebaseUid("firebaseUid1")
             .nickname("닉네임")
             .email("dofarming@gmail.com")
-            .image("image")
+            .image(이미지1)
             .gender(Gender.MALE)
             .age(0)
             .mood(Mood.CALM)
@@ -37,7 +48,7 @@ public class DomainFixture {
             .firebaseUid("firebaseUid2")
             .nickname("닉네임")
             .email("dofarming@gmail.com")
-            .image("image")
+            .image(이미지2)
             .gender(Gender.MALE)
             .age(0)
             .mood(Mood.CALM)

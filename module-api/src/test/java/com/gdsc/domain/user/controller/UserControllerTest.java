@@ -1,5 +1,6 @@
 package com.gdsc.domain.user.controller;
 
+import com.gdsc.domain.image.entity.Image;
 import com.gdsc.domain.user.entity.User;
 import com.gdsc.common.security.WithAuthUser;
 import com.gdsc.docs.util.RestDocsTest;
@@ -11,10 +12,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.restdocs.payload.RequestFieldsSnippet;
 import org.springframework.restdocs.payload.ResponseFieldsSnippet;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.gdsc.docs.util.ApiDocumentUtils.*;
 import static com.gdsc.fixture.DomainFixture.*;
@@ -23,7 +27,11 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.patch;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.put;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
+import static org.springframework.restdocs.request.RequestDocumentation.*;
+import static org.springframework.restdocs.request.RequestDocumentation.partWithName;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @DisplayName("UserController 테스트")
@@ -84,6 +92,35 @@ class UserControllerTest extends RestDocsTest {
                         )));
     }
 
+//    @Test
+//    @DisplayName("사용자의 프로필을 변경한다")
+//    @WithAuthUser
+//    void update_user_image() throws Exception {
+//        //given
+//        MockMultipartFile mockMultipartFile = new MockMultipartFile(
+//                "multipartFile",
+//                "image.png",
+//                "multipart/form-data",
+//                "image.png".getBytes(StandardCharsets.UTF_8));
+//
+//        given(userService.updateUserImage(mockMultipartFile, any(User.class))).willReturn(유저1);
+//        //when & then
+//        mvc.perform(multipart(REQUEST_URL + "/image")
+//                        .file(mockMultipartFile)
+//                        .contentType(MediaType.MULTIPART_FORM_DATA)
+//                        .accept(MediaType.APPLICATION_JSON)
+//                        .header("Authorization", "Bearer FirebaseToken")
+//                .andExpect(status().isOk())
+//                .andDo(document("update_user_image",
+//                        getDocumentRequest(),
+//                        getDocumentResponse(),
+//                        getAuthorizationHeader(),
+//                        requestParts(
+//                                partWithName("multipartFile").description("이미지 파일 (png, jpg, jpeg)")
+//                        ),
+//                        responseFieldsByUser())));
+//    }
+
     @Test
     @DisplayName("사용자 정보를 조회한다.")
     @WithAuthUser
@@ -109,7 +146,7 @@ class UserControllerTest extends RestDocsTest {
 
     private static ResponseFieldsSnippet responseFieldsByUser() {
         return responseFields(
-                fieldWithPath("image").type(JsonFieldType.STRING).description("이미지 URL"),
+                fieldWithPath("profileImageUrl").type(JsonFieldType.STRING).description("프로필 이미지 URL"),
                 fieldWithPath("nickname").type(JsonFieldType.STRING).description("닉네임"),
                 fieldWithPath("gender").type(JsonFieldType.STRING).description("성별"),
                 fieldWithPath("age").type(JsonFieldType.NUMBER).description("나이"),
