@@ -50,3 +50,13 @@ logging:
   discord:
     webhook-url: ${DISCORD_WEBHOOK_URL}
   config: classpath:logback-spring.xml
+
+---
+spring:
+  cloud:
+    gcp:
+      storage:
+        credentials:
+         location: ${LOCATION}
+        project-id: ${PROJECT_ID}
+        bucket: ${BUCKET}
