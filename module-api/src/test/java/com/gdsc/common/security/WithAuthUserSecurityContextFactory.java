@@ -10,12 +10,14 @@ import org.springframework.security.test.context.support.WithSecurityContextFact
 
 import java.util.List;
 
+import static com.gdsc.fixture.DomainFixture.이미지1;
+
 public class WithAuthUserSecurityContextFactory implements WithSecurityContextFactory<WithAuthUser> {
     @Override
     public SecurityContext createSecurityContext(WithAuthUser annotation) {
 
         User user = User.builder()
-                .image(annotation.image())
+                .image(이미지1)
                 .nickname(annotation.username())
                 .email(annotation.email())
                 .gender(annotation.gender())
