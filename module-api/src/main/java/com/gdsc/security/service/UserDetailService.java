@@ -1,5 +1,6 @@
 package com.gdsc.security.service;
 
+import com.gdsc.domain.image.entity.Image;
 import com.gdsc.domain.user.entity.Gender;
 import com.gdsc.domain.user.entity.Mood;
 import com.gdsc.domain.user.entity.Role;
@@ -33,7 +34,10 @@ public class UserDetailService implements UserDetailsService {
         User user = User.builder()
                 .firebaseUid(firebaseToken.getUid())
                 .email(firebaseToken.getEmail())
-                .image(firebaseToken.getPicture())
+                .image(Image.builder()
+                        .imageUrl(firebaseToken.getPicture())
+                        .uuid(String.valueOf(UUID.randomUUID()))
+                        .build())
                 .nickname("user" + UUID.randomUUID())
                 .gender(Gender.MALE)
                 .age(0)
