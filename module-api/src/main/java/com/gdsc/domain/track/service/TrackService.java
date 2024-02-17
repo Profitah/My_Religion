@@ -28,7 +28,6 @@ public class TrackService {
 
     private final TrackRepository trackRepository;
     private final KeywordService keywordService;
-    private final UserDetailService userDetailService;
 
     @Transactional
     public Track save(TrackRequest trackRequest, User user){
