@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-    private final ImageService imageService;
 
     @PatchMapping("/info")
     public ResponseEntity<UserInfoResponse> updateUserInfo(@AuthenticationPrincipal User user,
