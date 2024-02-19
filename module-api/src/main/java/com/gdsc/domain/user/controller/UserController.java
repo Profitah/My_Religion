@@ -46,6 +46,9 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<UserResponse> getUser(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(UserResponse.of(user));
+
+        User findUser = userService.getUser(user);
+
+        return ResponseEntity.ok(UserResponse.of(findUser));
     }
 }

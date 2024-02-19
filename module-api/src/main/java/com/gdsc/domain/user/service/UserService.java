@@ -51,4 +51,8 @@ public class UserService {
 
         return findUser.updateImage(image);
     }
+
+    public User getUser(User user) {
+        return userDetailService.loadUserByUsername(user.getFirebaseUid());
+    }
 }
