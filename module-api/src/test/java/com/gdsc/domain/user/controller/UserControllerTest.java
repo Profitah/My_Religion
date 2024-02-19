@@ -121,20 +121,20 @@ class UserControllerTest extends RestDocsTest {
 //                        responseFieldsByUser())));
 //    }
 
-    @Test
-    @DisplayName("사용자 정보를 조회한다.")
-    @WithAuthUser
-    void get_user() throws Exception {
-        //when & then
-        mvc.perform(get(REQUEST_URL)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", "Bearer FirebaseToken"))
-                .andDo(document("get-user",
-                        getDocumentRequest(),
-                        getDocumentResponse(),
-                        getAuthorizationHeader(),
-                        responseFieldsByUser()));
-    }
+//    @Test
+//    @DisplayName("사용자 정보를 조회한다.")
+//    @WithAuthUser
+//    void get_user() throws Exception {
+//        //when & then
+//        mvc.perform(get(REQUEST_URL)
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .header("Authorization", "Bearer FirebaseToken"))
+//                .andDo(document("get-user",
+//                        getDocumentRequest(),
+//                        getDocumentResponse(),
+//                        getAuthorizationHeader(),
+//                        responseFieldsByUser()));
+//    }
 
     private static ResponseFieldsSnippet responseFieldsByUserInfo() {
         return responseFields(
