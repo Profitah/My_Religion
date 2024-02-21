@@ -26,10 +26,10 @@ Through several functions, we have created a service that users can easily use a
 For more information on how to use it, please refer to.
 
 ## How to Use(Web)
-링크
+https://finna-ten.vercel.app
 
 ### Login
-![Login](https://github.com/Finna-GDSC/DoFarming_PM/assets/144197605/2950be44-b22a-421f-9b04-56373bd3738f)
+![Login](https://github.com/Finna-GDSC/DoFarming_PM/assets/144197605/bc4218eb-e4a3-4f7a-aa5d-1b241d512c39)
 If you want to use this service, you need to log in first.
 
 Sign in with Google, please.
@@ -48,6 +48,9 @@ It's divided into different areas and shows different routines for each track.
 ![Routine](https://github.com/Finna-GDSC/DoFarming_PM/assets/144197605/ee834ecb-54d7-46f2-af48-e1c6f66b348b)
 As we provide services to people suffering from depression, we focused on a routine that makes it easy to act.   
 The Add button lets you add it to your own track in the main view.
+<br></br>
+![add routine](https://github.com/Finna-GDSC/DoFarming_PM/assets/144197605/fe93e5aa-5660-4a25-9272-637e819bf0a5)
+The routines added on the track page can be found on the main track.
 
 ## Expert
 ![Expert](https://github.com/Finna-GDSC/DoFarming_PM/assets/144197605/22137256-f3ae-4100-9096-25b2544b0899)
@@ -70,4 +73,3 @@ You can see your information and change your nickname, age, and gender.
 * Google Cloud Storage
 
 <img width="892" alt="architecture" src="https://github.com/Finna-GDSC/DoFarming_PM/assets/144197605/f18585dc-40ae-4ab7-94e9-6c7d46a19499">
-
