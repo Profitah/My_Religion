@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("")
+    @GetMapping("/discrimination")
     public ResponseEntity<String> home(@AuthenticationPrincipal User user){
         if(userService.isNewUser(user)) return ResponseEntity.ok("처음 회원 가입한 사용자");
 
