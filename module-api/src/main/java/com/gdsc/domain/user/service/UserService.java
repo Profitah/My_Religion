@@ -46,6 +46,10 @@ public class UserService {
         return saveImage(multipartFile, findUser);
     }
 
+    public Boolean isNewUser(User user){
+        return getUser(user).getAge() == 0;
+    }
+
     private User saveImage(MultipartFile multipartFile, User findUser) {
         Image image = imageService.upload(multipartFile);
 

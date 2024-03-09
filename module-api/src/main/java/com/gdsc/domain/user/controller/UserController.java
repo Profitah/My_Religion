@@ -1,7 +1,5 @@
 package com.gdsc.domain.user.controller;
 
-import com.gdsc.domain.image.entity.Image;
-import com.gdsc.domain.image.service.ImageService;
 import com.gdsc.domain.user.entity.User;
 import com.gdsc.domain.user.model.*;
 import com.gdsc.domain.user.service.UserService;
@@ -19,6 +17,13 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+
+    @GetMapping("")
+    public ResponseEntity<String> home(@AuthenticationPrincipal User user){
+        if(userService.isNewUser(user)) return ResponseEntity.ok("처음 회원 가입한 사용자");
+
+        return ResponseEntity.ok("이미 회원 가입된 사용자");
+    }
 
     @PatchMapping("/info")
     public ResponseEntity<UserInfoResponse> updateUserInfo(@AuthenticationPrincipal User user,
