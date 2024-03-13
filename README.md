@@ -4,4 +4,4 @@ https://dofarming.duckdns.org/swagger-ui/index.html
 
 # My God
 
- |                      [조용현](https://github.com/whdcks2252)                      |  
+ |                      [조용현](https://github.com/chooh1010)                      |  
