@@ -4,4 +4,6 @@ https://dofarming.duckdns.org/swagger-ui/index.html
 
 # My God
 
- |                      [조용현](https://github.com/chooh1010)                      |  
+|                                                         | 
+|---------------------------------------------------------| 
+| [<img src="https://github.com/chooh1010.png?size=100" width="100px;"> <br> <sub>조용현</sub>](https://github.com/chooh1010) | 
