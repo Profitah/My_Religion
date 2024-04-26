@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class MoodService {
+
     public Map<String, String> findAll() {
         return Arrays.stream(Mood.values())
                 .sorted(Comparator.comparing(Mood::getCode))
